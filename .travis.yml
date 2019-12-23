@@ -5,10 +5,11 @@ python:
 - 3.6
 
 install: 
-  - pip install -U tox-travis sphinx
+  - pip install -U tox-travis sphinx codecov
 script: 
   - git clean -f -d -x
   - tox
+
 deploy:
   provider: pypi
   skip_existing: true
@@ -19,6 +20,12 @@ deploy:
   on:
     repo: oristides/ksfest
     all_branches: master
+# Run the unit test
+
+# Push the results back to codecov
+after_success:
+  - codecov
+
 after_deploy: "echo 'Deployment finished!'"
 
 

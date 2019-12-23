@@ -11,11 +11,11 @@ class ks_fest(object):
 
     def __init__(self):
 
-        self.dict_cdfs_var_dim=dict()
-        self.cols=None
+        self.cols=list()
         self.dict_ks=dict()
         self.dict_ks_pvalues=dict()
-    
+        self.cols=None
+
     def get_ks(self,df,var_dim, sample,columns=None, na_number=-1, **kwargs):
 
         """
@@ -40,7 +40,9 @@ class ks_fest(object):
 
         if columns==None:
                 columns=[col for col in df.columns if col!=var_dim]
-                self.cols=columns        
+        
+        #Assing columns to an object list
+        self.cols=columns
         
         #Teste
 
@@ -71,4 +73,3 @@ class ks_fest(object):
         self.pandas_ks[var_dim]=self.pandas_ks.index
         self.pandas_ks.index=range(len(self.pandas_ks))
         return self.pandas_ks
-    
