@@ -10,8 +10,7 @@ install:
 script: 
   - git clean -f -d -x
   - tox
-  - coverage run test/tests_ksfest.py
-
+  
 deploy:
   provider: pypi
   skip_existing: true
