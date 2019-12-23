@@ -5,11 +5,12 @@ python:
 - 3.6
 
 install: 
-  - pip install -U tox-travis sphinx codecov
+  - pip install -U tox-travis sphinx
+  - pip install --user codecov
 script: 
   - git clean -f -d -x
   - tox
-
+  
 deploy:
   provider: pypi
   skip_existing: true
